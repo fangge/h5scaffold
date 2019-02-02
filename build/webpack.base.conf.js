@@ -28,6 +28,11 @@ glob.sync('./src/pages/**/app.js').forEach(path => {
     template: path.replace(/.js/g, '.html'),
     inject: 'body',
     hash: true,
+    minify: { // 压缩 HTML 的配置
+        collapseWhitespace: true,
+        removeComments: true,
+        useShortDoctype: true
+    },
     chunks: ['commons', chunk]
   }
   htmlWebpackPluginArray.push(new HtmlWebpackPlugin(htmlConf))
@@ -62,7 +67,7 @@ const config = {
   entry: entries,
   output: {
     path: resolve(__dirname, '../dist'),
-    filename: 'assets/js/[name].js',
+    filename: 'assets/js/[name].js?[hash]',
     publicPath: '/'
   },
   resolve: {
@@ -97,7 +102,7 @@ const config = {
       {
         test: /\.js$/,
         use: {
-          loader:'babel-loader',
+          loader:'babel-loader?cacheDirectory',
             options: {
                 presets: ['es2015']
             }
