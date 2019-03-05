@@ -72,14 +72,3 @@ li {
 html{
   font-size:10vw;
 }
-
-@media screen and (min-width:($maxBaseSize * 1px)){
-  html{
-    font-size:($maxBaseSize / 10) * 1px;
-  }
-}
-.ha{
-  width: 280px;
-  height:99px;
-  @include ellipsis
-}

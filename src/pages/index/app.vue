@@ -1,6 +1,6 @@
 <template>
     <div class="wrap">
-        <div class="ha"></div>
+
     </div>
 </template>
 
